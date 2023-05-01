@@ -1,0 +1,40 @@
+Name: Jake Tsuchiyama
+Date: 11/2/22
+Title: Lab 7 - Observations
+Description: This text file documents all of my observations in COEN 177L Lab 7.
+
+The Minix Scheduler
+- In the host machine, open a terminal and run 'setup vmware' and 'vmware &' to start VMWare
+- Power on the Minix3 by clicking on 'Minix3' and clicking the 'Power on' button
+- In the virtual machine, login as needed
+- Prepare to setup an FTP connection by using 'tcpd ftp /usr/bin/in.ftpd &' and 'ifconfig' in the virtual machine
+- In the host machine, run 'ftp <address from ifconfig>' to setup the FTP connection
+- In the host machine, run 'cd /usr/src/kernel' and 'dir' to check the available files in the kernel folder
+- Noticing that there's a file called 'proc.c', use 'get proc.c' in the host machine to transfer the file from the virtual to the host machine so that we can edit the file
+
+- First, we need to determine where we need to edit to achieve the task. Looking through the naming, function bodies, and comments, the pick_proc() function is the best bet
+- We will generate a random number between 0-9 and then check if the number is <= 2 to produce a 30% probability
+- Following the slides, if the probability check is true and the q is > 2, then increase the q by 2 to assign a lower priority task
+- The added code is as follows:
+
+for (q=0; q < NR_SCHED_QUEUES; q++) {	
+	random = rand() % 10;
+
+	if (random <= 2 && q > 2)
+		q = q % (NR_SCHED_QUEUES - 2) + 2;
+
+
+	if(!(rp = rdy_head[q]))  { 
+		TRACE(VF_PICKPROC, printf("queue %d empty\n", q););
+		continue;
+	}
+
+- After saving these changes, transfer the proc.c back to the virtual machine using 'put proc.c'
+
+- Finally, we need to remake the kernel. In the virtual machine, run 'cd /usr/src' and 'make world'
+- Once the make is complete, 'reboot'
+
+Observing a changes
+- I will test and compare the behaviours of the original and modified schedulers by comparing the reboot runtime using the two schedulers
+- Original: 1 min 22 secs
+- Modified: 4 mins 9 secs

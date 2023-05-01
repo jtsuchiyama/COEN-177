@@ -1,0 +1,9 @@
+Name: Jake Tsuchiyama
+Date: 9/28/22
+Title: Lab 2 - Observations
+Description: This text file documents all of my observations in COEN 177L Lab 2.
+
+3. When running the executable without additional parameters, the executable seg faults.
+
+4a. When comparing the delays of 500 and 5000, the delay of 5000 causes a longer delay between each print. This makes sense since there is a longer delay as defined by the executable parameter.
+

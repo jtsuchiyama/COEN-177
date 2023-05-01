@@ -1,0 +1,12 @@
+Name: Jake Tsuchiyama
+Date: 9/21/22
+Title: Lab 1 - Observations
+Description: This text document holds the observations for Lab 1.
+
+Step 1.
+- First, the program echos the name of the shell file.
+- It also echoes all of the files and their word counts in the directory.
+- It then echoes the PATH environment variable, the path name of the home directory, the user name, the current directory path, and the process id of the current process.
+- It then sends a welcome message with the $user and $numusers.
+- At this point, it checks if the user is the user that is expected.
+- Since my username is not the expected user, it exits the program, not allowing the user to calculate the area of the rectangle.

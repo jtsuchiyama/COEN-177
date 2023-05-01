@@ -1,0 +1,14 @@
+Name: Jake Tsuchiyama
+Date: 10/19/22
+Title: Lab 5 - Observations
+Description: This text file documents all of my observations in COEN 177L Lab 5.
+
+1. 
+When you run the threadSync.c program, it iterates from 0 to NTHREADS-1, creating threads for each iteration. When each thread is created, 
+the go function causes the thread to enter the critical region if possible. Once the thread is in the critical region, the thread prints out a message 
+and then exits the critical region. That being said, the threads do not necessarily enter the critical region in the order that they were called. It seems that
+a random waiting thread is allowed into the critical region resulting a random order of threads entering the critical region. However, the threads still return in
+ascending numerical order. Since the for loop iterates through the threads numerically, the process is waiting for the threads to exit numerically, which causes the ascending
+returning order of the threads.
+
+The two programs differ in that the threadSync.c program uses mutex to allow a single thread to be in the critical region at a time. This ensures mutual exclusion.

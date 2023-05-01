@@ -1,0 +1,35 @@
+Name: Jake Tsuchiyama
+Date: 10/26/22
+Title: Lab 6 - Observations
+Description: This text file documents all of my observations in COEN 177L Lab 6.
+
+1. 
+First we need to setup and boot VMWare by running the following commands.
+- 'setup vmware'
+- 'minix-get-image'
+- 'vmware &'
+
+Then, we need to open up the VMWare by clicking on 'Minix3' and clicking the 'Power on' button
+
+As the VMWare is launching, it will log you in with the username 'user' automatically. You may setup a password if you choose using the 'passwd' command.
+
+Next, we need to setup an FTP connection so that we can transfer files between the virtual machine and the host machine. In your virtual machine, run
+- 'tcpd ftp /usr/bin/in.ftpd &'
+- 'iconfig'
+
+Using the address that appears as a result of the 'ifconfig' command, in your host machine run
+- ftp <address>
+
+Next, we will be using the FTP connection that was just setup to transfer the main.c file to our host machine so that we can edit it. In your host machine, run
+- 'cd /usr/src/kernel'
+- 'get main.c'
+- Navigate to the root/home directory where the main.c was transferred to and edit the file using a text editor or IDE'
+- I added a printf message in void announce() to print an additional message with the copyright message
+- Once the file is edited and saved, transfer the main.c back to the virtual machine using 'put main.c'
+
+Finally, we need to remake the kernel and check that the changes worked. In your virtual machine, run
+- 'cd /usr/src'
+- 'make world'
+- Once the make is complete, 'reboot'
+- As the virtual machine is rebooting, you should be able to look for the changes that you made.
+

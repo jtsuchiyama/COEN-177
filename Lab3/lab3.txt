@@ -1,0 +1,6 @@
+Name: Jake Tsuchiyama
+Date: 10/5/22
+Title: Lab3 - Observations
+Description: This text file will document all of my observations for COEN 177 Lab 3.
+
+6. Since the NTHREADS is defined as 10, the program creates 10 threads. In each for loop the values passed range from 0-9 inclusive. Additionally, while the thread return prints are always in ascending numerical order, the thread hello prints are in a random order. I am guessing that the bug occurs because the threads do not wait for the other threads before they end.

@@ -1,0 +1,14 @@
+Name: Jake Tsuchiyama
+Date: 10/12/22
+Title: Lab 4 - Observations
+Description: This text file will document all of my observations for COEN 177 Lab 4.
+
+1. 
+The threadHello.c program creates 20 threads and waits for all 20 threads to complete before ending its execution. Each thread prints a hello message indicating which thread printed the message. 
+When running the program multiple times, I noticed that the hello messages print out in a random order with certain threads seeming to print a message twice. A similar behavior was observed in Lab 3. In contrast, the thread return message always prints inincreasing numerical order. 
+When performing other demanding processes simultaneously, I observed that the program more often prints out multiple messages from the same thread. 
+The parameter variables are per-thread variables. The compiler stores these variables' states in thread control blocks, which typically store thread information.
+The main() local 'i' variable is a shared state variable. The compiler stores this variable on the stack.
+
+2.
+Since the program no longer waits for all the threads to complete before ending execution, the number of hello print messages varies each program run from 0-20 prints. It varies per each run since not all the threads will necessarily print before the program ends its execution.
